@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="とびchan. Astroサイト（移行中）"
+  description="水素のお兄さん とびchan. のAstroベース新サイト（フェーズ2 移行作業中）"
+>
+  <Header />
+  <main class="container mx-auto px-4 py-12 sm:py-20 max-w-3xl text-center">
+    <div class="inline-block text-5xl sm:text-6xl mb-6">🚧</div>
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+      Astroサイト 移行作業中
+    </h1>
+    <p class="text-gray-600 mb-2">
+      この preview URL は、新ブログ機能の動作確認用です。
+    </p>
+    <p class="text-sm text-gray-500 mb-8">
+      本番サイトは <a href="https://tobichan.com" class="text-blue-600 hover:underline">tobichan.com</a> をご覧ください。
+    </p>
+    <a
+      href="/blog"
+      class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold text-sm sm:text-base hover:bg-blue-700 transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+    >
+      ブログを見る →
+    </a>
+  </main>
+  <Footer />
+</BaseLayout>

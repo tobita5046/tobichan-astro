@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getAllPosts } from '../../lib/notion';
+
+const posts = await getAllPosts();
+---
+
+<BaseLayout
+  title="ブログ｜水素のお兄さん とびchan."
+  description="水素エネルギーや実験、業界ニュースなど、水素のお兄さん とびchan. が発信する記事一覧"
+>
+  <Header />
+  <main class="container mx-auto px-4 py-8 sm:py-12 max-w-6xl">
+    <div class="text-center mb-8 sm:mb-12">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+        水素<span class="text-blue-600">ブログ</span>
+      </h1>
+      <p class="text-sm sm:text-base text-gray-600">
+        水素エネルギーについての記事をお届けします
+      </p>
+    </div>
+
+    {posts.length === 0 ? (
+      <div class="text-center py-16">
+        <p class="text-gray-500 mb-2">まだ公開記事がありません</p>
+        <p class="text-xs text-gray-400">
+          Notion で Status を「公開済み」にした記事がここに表示されます
+        </p>
+      </div>
+    ) : (
+      <>
+        <div class="text-sm text-gray-500 mb-6 text-center sm:text-left">
+          {posts.length} 件の記事
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {posts.map((post) => <BlogCard post={post} />)}
+        </div>
+      </>
+    )}
+  </main>
+  <Footer />
+</BaseLayout>
