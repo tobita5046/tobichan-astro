@@ -81,6 +81,25 @@ n2m.setCustomTransformer('link_preview', async (block: any) => {
 });
 
 // ===========================
+// Notion の内部リンク自動変換を戻す
+// ===========================
+
+/**
+ * Notion は markdown で `/blog/xxx` のような相対パスを貼ると
+ * `https://www.notion.so/blog/xxx` に書き換えてしまう。
+ * これをサイト内相対パスに戻す。
+ */
+function normalizeNotionLinks(markdown: string): string {
+  // サイト内パス（routes）として扱うトップレベルディレクトリ
+  const SITE_PATHS = ['blog', 'about', 'contact', 'category', 'campaign', 'history'];
+  const pattern = new RegExp(
+    `\\]\\(https:\\/\\/(?:www\\.)?notion\\.so\\/(${SITE_PATHS.join('|')})((?:\\/[^)\\s]*)?)\\)`,
+    'g'
+  );
+  return markdown.replace(pattern, (_match, path, rest) => `](/${path}${rest || ''})`);
+}
+
+// ===========================
 // 型定義
 // ===========================
 
@@ -94,7 +113,6 @@ export interface BlogPost {
   date: string;
   description: string;
   youtubeUrl: string;
-  correctionVideoUrl: string;
   heroImage: string;
 }
 
@@ -153,7 +171,7 @@ export async function getPostBySlug(
 
   const mdblocks = await n2m.pageToMarkdown(post.id);
   const mdString = n2m.toMarkdownString(mdblocks);
-  const markdown = mdString.parent || '';
+  const markdown = normalizeNotionLinks(mdString.parent || '');
 
   // marked: HTMLタグはそのまま通す（sanitize無効）
   const html = await marked.parse(markdown, {
@@ -182,7 +200,6 @@ function parsePostMetadata(page: any): BlogPost {
     date: props['公開日']?.date?.start || '',
     description: props['Description']?.rich_text?.[0]?.plain_text || '',
     youtubeUrl: props['YouTube URL']?.url || '',
-    correctionVideoUrl: props['訂正動画 URL']?.url || '',
     heroImage: props['アイキャッチURL']?.url || '',
   };
 }
