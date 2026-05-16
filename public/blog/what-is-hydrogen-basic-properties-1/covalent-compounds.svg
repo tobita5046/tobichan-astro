@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 18 1100 482" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif">
+  <rect x="0" y="18" width="1100" height="482" fill="#f8fafc"/>
+
+  <!-- ヘッダー -->
+  <text x="550" y="42" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">水素を含む3つの代表的な化合物</text>
+  <text x="550" y="68" text-anchor="middle" font-size="13" fill="#64748b">電子を「シェイクハンド」して結びついている = 共有結合</text>
+
+  <!-- ====== 水 H₂O ====== -->
+  <g transform="translate(200, 260)">
+    <rect x="-140" y="-160" width="280" height="50" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="0" y="-130" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e40af">水（H₂O）</text>
+
+    <!-- 中央のO -->
+    <circle cx="0" cy="0" r="32" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2.5"/>
+    <text x="0" y="8" text-anchor="middle" font-size="22" font-weight="bold" fill="white">O</text>
+
+    <!-- 左下のH -->
+    <line x1="-22" y1="22" x2="-60" y2="60" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="-65" cy="65" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="-65" y="72" text-anchor="middle" font-size="16" font-weight="bold" fill="white">H</text>
+
+    <!-- 右下のH -->
+    <line x1="22" y1="22" x2="60" y2="60" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="65" cy="65" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="65" y="72" text-anchor="middle" font-size="16" font-weight="bold" fill="white">H</text>
+
+    <!-- ラベル -->
+    <text x="0" y="135" text-anchor="middle" font-size="12" fill="#64748b">酸素 1 + 水素 2</text>
+    <text x="0" y="155" text-anchor="middle" font-size="11" fill="#475569" font-weight="600">地球を覆う物質</text>
+  </g>
+
+  <!-- ====== アンモニア NH₃ ====== -->
+  <g transform="translate(550, 260)">
+    <rect x="-140" y="-160" width="280" height="50" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="0" y="-130" text-anchor="middle" font-size="18" font-weight="bold" fill="#166534">アンモニア（NH₃）</text>
+
+    <!-- 中央のN -->
+    <circle cx="0" cy="0" r="32" fill="#22c55e" stroke="#15803d" stroke-width="2.5"/>
+    <text x="0" y="8" text-anchor="middle" font-size="22" font-weight="bold" fill="white">N</text>
+
+    <!-- 上のH -->
+    <line x1="0" y1="-32" x2="0" y2="-60" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="0" cy="-75" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="0" y="-68" text-anchor="middle" font-size="16" font-weight="bold" fill="white">H</text>
+
+    <!-- 左下のH -->
+    <line x1="-22" y1="22" x2="-55" y2="55" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="-62" cy="62" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="-62" y="69" text-anchor="middle" font-size="16" font-weight="bold" fill="white">H</text>
+
+    <!-- 右下のH -->
+    <line x1="22" y1="22" x2="55" y2="55" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="62" cy="62" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="62" y="69" text-anchor="middle" font-size="16" font-weight="bold" fill="white">H</text>
+
+    <text x="0" y="135" text-anchor="middle" font-size="12" fill="#64748b">窒素 1 + 水素 3</text>
+    <text x="0" y="155" text-anchor="middle" font-size="11" fill="#475569" font-weight="600">水素キャリアとして注目</text>
+  </g>
+
+  <!-- ====== メタン CH₄ ====== -->
+  <g transform="translate(900, 260)">
+    <rect x="-140" y="-160" width="280" height="50" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
+    <text x="0" y="-130" text-anchor="middle" font-size="18" font-weight="bold" fill="#92400e">メタン（CH₄）</text>
+
+    <!-- 中央のC -->
+    <circle cx="0" cy="0" r="32" fill="#a16207" stroke="#713f12" stroke-width="2.5"/>
+    <text x="0" y="8" text-anchor="middle" font-size="22" font-weight="bold" fill="white">C</text>
+
+    <!-- 上のH -->
+    <line x1="0" y1="-32" x2="0" y2="-55" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="0" cy="-70" r="18" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="0" y="-64" text-anchor="middle" font-size="14" font-weight="bold" fill="white">H</text>
+
+    <!-- 下のH -->
+    <line x1="0" y1="32" x2="0" y2="55" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="0" cy="70" r="18" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="0" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="white">H</text>
+
+    <!-- 左のH -->
+    <line x1="-32" y1="0" x2="-55" y2="0" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="-70" cy="0" r="18" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="-70" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">H</text>
+
+    <!-- 右のH -->
+    <line x1="32" y1="0" x2="55" y2="0" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="70" cy="0" r="18" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="70" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">H</text>
+
+    <text x="0" y="135" text-anchor="middle" font-size="12" fill="#64748b">炭素 1 + 水素 4</text>
+    <text x="0" y="155" text-anchor="middle" font-size="11" fill="#475569" font-weight="600">エネルギー・燃料の代表</text>
+  </g>
+
+  <!-- 下部の注釈 -->
+  <g transform="translate(80, 440)">
+    <rect x="0" y="0" width="940" height="40" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="470" y="22" text-anchor="middle" font-size="12" fill="#475569">
+      💡 化学式の「線」は「電子を共有してます（シェイクハンド）」というサイン。これが「共有結合」です🤝
+    </text>
+  </g>
+
+  <text x="1040" y="490" text-anchor="end" font-size="10" fill="#94a3b8">水素のお兄さん とびchan.</text>
+</svg>

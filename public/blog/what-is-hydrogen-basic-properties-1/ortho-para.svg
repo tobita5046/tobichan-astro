@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif">
+  <rect width="1000" height="520" fill="#f8fafc"/>
+
+  <!-- ヘッダー -->
+  <text x="500" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">オルソ水素 vs パラ水素</text>
+  <text x="500" y="62" text-anchor="middle" font-size="13" fill="#64748b">陽子のスピン（回転）の向きで2タイプに分かれる</text>
+
+  <!-- ====== 左：オルソ水素 ====== -->
+  <g transform="translate(225, 215)">
+    <rect x="-150" y="-140" width="300" height="36" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
+    <text x="0" y="-117" text-anchor="middle" font-size="15" font-weight="bold" fill="#92400e">オルソ水素（ortho）</text>
+
+    <!-- 軌道 -->
+    <circle cx="-50" cy="0" r="60" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <circle cx="50" cy="0" r="60" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+    <!-- 陽子 -->
+    <circle cx="-50" cy="0" r="22" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="-50" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+    <circle cx="50" cy="0" r="22" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="50" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+
+    <!-- スピン矢印（両方上向き）-->
+    <g transform="translate(-50, -45)">
+      <line x1="0" y1="20" x2="0" y2="-15" stroke="#3b82f6" stroke-width="3.5"/>
+      <polygon points="-8,-10 8,-10 0,-22" fill="#3b82f6"/>
+    </g>
+    <g transform="translate(50, -45)">
+      <line x1="0" y1="20" x2="0" y2="-15" stroke="#3b82f6" stroke-width="3.5"/>
+      <polygon points="-8,-10 8,-10 0,-22" fill="#3b82f6"/>
+    </g>
+
+    <text x="0" y="92" text-anchor="middle" font-size="14" font-weight="600" fill="#475569">スピンが「同じ向き」</text>
+    <text x="0" y="113" text-anchor="middle" font-size="12" fill="#64748b">↑ ↑ または ↓ ↓</text>
+  </g>
+
+  <!-- ====== 中央：変換矢印 ====== -->
+  <g transform="translate(500, 215)">
+    <text x="0" y="-32" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">液化時に変換</text>
+    <line x1="-50" y1="0" x2="50" y2="0" stroke="#475569" stroke-width="3" marker-end="url(#arrowConv)"/>
+    <text x="0" y="28" text-anchor="middle" font-size="12" fill="#dc2626" font-weight="bold">⚠ 発熱する</text>
+  </g>
+  <defs>
+    <marker id="arrowConv" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- ====== 右：パラ水素 ====== -->
+  <g transform="translate(775, 215)">
+    <rect x="-150" y="-140" width="300" height="36" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="0" y="-117" text-anchor="middle" font-size="15" font-weight="bold" fill="#166534">パラ水素（para）</text>
+
+    <circle cx="-50" cy="0" r="60" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <circle cx="50" cy="0" r="60" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+    <circle cx="-50" cy="0" r="22" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="-50" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+    <circle cx="50" cy="0" r="22" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="50" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+
+    <!-- スピン矢印（片方上向き、片方下向き）-->
+    <g transform="translate(-50, -45)">
+      <line x1="0" y1="20" x2="0" y2="-15" stroke="#3b82f6" stroke-width="3.5"/>
+      <polygon points="-8,-10 8,-10 0,-22" fill="#3b82f6"/>
+    </g>
+    <g transform="translate(50, 45)">
+      <line x1="0" y1="-20" x2="0" y2="15" stroke="#dc2626" stroke-width="3.5"/>
+      <polygon points="-8,10 8,10 0,22" fill="#dc2626"/>
+    </g>
+
+    <text x="0" y="92" text-anchor="middle" font-size="14" font-weight="600" fill="#475569">スピンが「逆向き」</text>
+    <text x="0" y="113" text-anchor="middle" font-size="12" fill="#64748b">↑ ↓ または ↓ ↑</text>
+  </g>
+
+  <!-- 下部の説明ボックス -->
+  <g transform="translate(80, 355)">
+    <rect x="0" y="0" width="840" height="130" rx="10" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+    <text x="20" y="28" font-size="15" font-weight="bold" fill="#991b1b">⚠ 液化水素の落とし穴</text>
+    <text x="20" y="56" font-size="12" fill="#7f1d1d">水素を -253℃ に冷やして液化すると、オルソ水素がゆっくりパラ水素に変換していきます。</text>
+    <text x="20" y="76" font-size="12" fill="#7f1d1d">この変換時に「発熱」してしまい、せっかく液化したのに熱で蒸発してしまう……。</text>
+    <text x="20" y="102" font-size="12" font-weight="bold" fill="#991b1b">💡 対策：液化する前に予めオルソ → パラに変換しておくのが一般的</text>
+    <text x="20" y="120" font-size="11" fill="#7f1d1d">「水素を液体で長期保存する」って、実はめちゃくちゃ繊細な技術なんです</text>
+  </g>
+
+  <text x="940" y="510" text-anchor="end" font-size="10" fill="#94a3b8">水素のお兄さん とびchan.</text>
+</svg>

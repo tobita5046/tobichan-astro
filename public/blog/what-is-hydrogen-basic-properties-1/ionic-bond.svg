@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 18 1100 560" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif">
+  <rect x="0" y="18" width="1100" height="560" fill="#f8fafc"/>
+
+  <!-- ヘッダー -->
+  <text x="550" y="42" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">イオン結合 ── 電子をあげる／もらう関係</text>
+  <text x="550" y="68" text-anchor="middle" font-size="13" fill="#64748b">水素は「H⁺」「H⁻」どちらにもなれる柔軟さがある</text>
+
+  <!-- 上段：水素のイオン3パターン -->
+  <g transform="translate(0, 200)">
+    <!-- H⁺ -->
+    <g transform="translate(180, 0)">
+      <text x="0" y="-110" text-anchor="middle" font-size="14" font-weight="bold" fill="#dc2626">H⁺（電子なし）</text>
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <circle cx="0" cy="0" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+      <text x="0" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+      <text x="0" y="75" text-anchor="middle" font-size="12" fill="#64748b">電子 0 個</text>
+      <text x="0" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">+1 に帯電</text>
+    </g>
+
+    <!-- H（通常） -->
+    <g transform="translate(540, 0)">
+      <text x="0" y="-110" text-anchor="middle" font-size="14" font-weight="bold" fill="#475569">H（通常）</text>
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <circle cx="0" cy="0" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+      <text x="0" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+      <circle cx="55" cy="0" r="8" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="0" y="90" text-anchor="middle" font-size="12" fill="#64748b">電子 1 個</text>
+      <text x="0" y="110" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">プラマイゼロ</text>
+    </g>
+
+    <!-- H⁻（ヒドリド） -->
+    <g transform="translate(900, 0)">
+      <text x="0" y="-110" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">H⁻（ヒドリド）</text>
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <circle cx="0" cy="0" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+      <text x="0" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+      <circle cx="55" cy="0" r="8" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+      <circle cx="-55" cy="0" r="8" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="0" y="90" text-anchor="middle" font-size="12" fill="#64748b">電子 2 個</text>
+      <text x="0" y="110" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">-1 に帯電（安定！）</text>
+    </g>
+  </g>
+
+  <!-- 中央仕切り -->
+  <line x1="80" y1="350" x2="1020" y2="350" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- 下段：LiH（水素化リチウム）の説明 -->
+  <text x="550" y="385" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e293b">例：水素化リチウム LiH</text>
+  <text x="550" y="408" text-anchor="middle" font-size="12" fill="#64748b">リチウムが電子を1個渡して、お互いプラスとマイナスで引き合う</text>
+
+  <!-- Li+ -->
+  <g transform="translate(380, 490)">
+    <rect x="-110" y="-50" width="220" height="100" rx="12" fill="#fef9c3" stroke="#eab308" stroke-width="2.5"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="24" font-weight="bold" fill="#a16207">Li⁺</text>
+    <text x="0" y="5" text-anchor="middle" font-size="11" fill="#64748b">電子を1個捨てた</text>
+    <text x="0" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#a16207">プラスに帯電</text>
+    <text x="0" y="45" text-anchor="middle" font-size="10" fill="#64748b">＝リチウムイオン電池のあれ🔋</text>
+  </g>
+
+  <!-- 引き合い矢印（双方向） -->
+  <g transform="translate(550, 490)">
+    <text x="0" y="-28" text-anchor="middle" font-size="11" fill="#dc2626" font-weight="bold">+ と − が</text>
+    <line x1="-32" y1="0" x2="32" y2="0" stroke="#dc2626" stroke-width="3"/>
+    <polygon points="-45,0 -30,-7 -30,7" fill="#dc2626"/>
+    <polygon points="45,0 30,-7 30,7" fill="#dc2626"/>
+    <text x="0" y="32" text-anchor="middle" font-size="11" fill="#dc2626" font-weight="bold">引き合う</text>
+  </g>
+
+  <!-- H- -->
+  <g transform="translate(720, 490)">
+    <rect x="-110" y="-50" width="220" height="100" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2.5"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e40af">H⁻</text>
+    <text x="0" y="5" text-anchor="middle" font-size="11" fill="#64748b">電子を1個もらった</text>
+    <text x="0" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">マイナスに帯電</text>
+    <text x="0" y="45" text-anchor="middle" font-size="10" fill="#64748b">＝ヒドリド</text>
+  </g>
+
+  <text x="1040" y="565" text-anchor="end" font-size="10" fill="#94a3b8">水素のお兄さん とびchan.</text>
+</svg>

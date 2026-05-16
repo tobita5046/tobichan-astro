@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 18 1000 522" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif">
+  <rect x="0" y="18" width="1000" height="522" fill="#f8fafc"/>
+
+  <!-- ヘッダー -->
+  <text x="500" y="42" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">水素分子 H₂ ── 2つでくっつくと安定</text>
+  <text x="500" y="68" text-anchor="middle" font-size="13" fill="#64748b">共有結合（covalent bond）で電子をシェア</text>
+
+  <!-- 左：H 単独 -->
+  <g transform="translate(180, 250)">
+    <text x="0" y="-150" text-anchor="middle" font-size="14" font-weight="bold" fill="#dc2626">⚠ 不安定</text>
+    <text x="0" y="-130" text-anchor="middle" font-size="12" fill="#64748b">水素原子 H（単独）</text>
+
+    <!-- 電子軌道 -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <!-- 陽子 -->
+    <circle cx="0" cy="0" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P</text>
+    <!-- 電子1個 -->
+    <circle cx="80" cy="0" r="9" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+
+    <text x="0" y="115" text-anchor="middle" font-size="13" fill="#475569">電子は 1 個</text>
+    <text x="0" y="135" text-anchor="middle" font-size="11" fill="#94a3b8">→ もう 1 個欲しい！</text>
+  </g>
+
+  <!-- 中央：矢印 -->
+  <g transform="translate(380, 250)">
+    <text x="60" y="-18" text-anchor="middle" font-size="13" font-weight="bold" fill="#475569">2つでくっつく</text>
+    <line x1="0" y1="0" x2="120" y2="0" stroke="#475569" stroke-width="3" marker-end="url(#arrowMid)"/>
+    <text x="60" y="22" text-anchor="middle" font-size="11" fill="#64748b">電子を共有</text>
+  </g>
+  <defs>
+    <marker id="arrowMid" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- 右：H₂ 分子 -->
+  <g transform="translate(740, 250)">
+    <text x="0" y="-150" text-anchor="middle" font-size="14" font-weight="bold" fill="#16a34a">✓ 安定</text>
+    <text x="0" y="-130" text-anchor="middle" font-size="12" fill="#64748b">水素分子 H₂</text>
+
+    <!-- 左の H 軌道 -->
+    <circle cx="-50" cy="0" r="70" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <!-- 右の H 軌道 -->
+    <circle cx="50" cy="0" r="70" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+    <!-- 重なり領域（電子共有の領域） -->
+    <path d="M 0,-50 A 70,70 0 0,1 0,50 A 70,70 0 0,1 0,-50 Z" fill="#fef3c7" opacity="0.6"/>
+
+    <!-- 左の陽子 -->
+    <circle cx="-50" cy="0" r="18" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="-50" y="6" text-anchor="middle" font-size="13" font-weight="bold" fill="white">P</text>
+    <!-- 右の陽子 -->
+    <circle cx="50" cy="0" r="18" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="50" y="6" text-anchor="middle" font-size="13" font-weight="bold" fill="white">P</text>
+
+    <!-- 共有された電子2個（中央） -->
+    <circle cx="-10" cy="0" r="7" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+    <circle cx="10" cy="0" r="7" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+
+    <text x="0" y="115" text-anchor="middle" font-size="13" fill="#475569">電子 2 個を共有 → 実質「2個ずつ」</text>
+    <text x="0" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#16a34a">→ 軽い元素は電子 2 個で安定！</text>
+  </g>
+
+  <!-- 凡例 -->
+  <g transform="translate(80, 470)">
+    <circle cx="0" cy="0" r="8" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+    <text x="14" y="4" font-size="11" fill="#475569">P = 陽子（Proton）</text>
+
+    <circle cx="180" cy="0" r="7" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="194" y="4" font-size="11" fill="#475569">青い小球 = 電子（Electron）</text>
+
+    <rect x="390" y="-8" width="16" height="16" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+    <text x="412" y="4" font-size="11" fill="#475569">共有電子のエリア</text>
+
+    <text x="840" y="4" text-anchor="end" font-size="10" fill="#94a3b8">水素のお兄さん とびchan.</text>
+  </g>
+</svg>
