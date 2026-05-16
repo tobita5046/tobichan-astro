@@ -15,6 +15,75 @@ if (!DATABASE_ID) {
 const notion = new Client({ auth: NOTION_API_KEY });
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
+// ===========================
+// YouTube URL → 埋め込みiframe変換
+// ===========================
+
+/** YouTube URLから動画IDを抽出 */
+function extractYouTubeVideoId(url: string): string | null {
+  if (!url) return null;
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/,
+    /youtube\.com\/v\/([a-zA-Z0-9_-]{11})/,
+  ];
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
+}
+
+/** YouTube埋め込みHTMLを生成 */
+function makeYouTubeEmbed(videoId: string): string {
+  return `\n\n<div class="video-embed"><iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>\n\n`;
+}
+
+// ===========================
+// Notion ブロック → Markdown カスタム変換
+// ===========================
+
+// video ブロック（/video コマンドで挿入）
+n2m.setCustomTransformer('video', async (block: any) => {
+  const v = block.video;
+  let url = '';
+  if (v?.type === 'external') {
+    url = v.external?.url || '';
+  } else if (v?.type === 'file') {
+    url = v.file?.url || '';
+  }
+  const videoId = extractYouTubeVideoId(url);
+  if (videoId) return makeYouTubeEmbed(videoId);
+  return url ? `[動画を見る](${url})` : '';
+});
+
+// embed ブロック（/embed コマンドで挿入）
+n2m.setCustomTransformer('embed', async (block: any) => {
+  const url = block.embed?.url || '';
+  const videoId = extractYouTubeVideoId(url);
+  if (videoId) return makeYouTubeEmbed(videoId);
+  return url ? `[${url}](${url})` : '';
+});
+
+// bookmark ブロック（URLをブックマーク形式で貼った場合）
+n2m.setCustomTransformer('bookmark', async (block: any) => {
+  const url = block.bookmark?.url || '';
+  const videoId = extractYouTubeVideoId(url);
+  if (videoId) return makeYouTubeEmbed(videoId);
+  return url ? `[${url}](${url})` : '';
+});
+
+// link_preview ブロック（リンクプレビュー）
+n2m.setCustomTransformer('link_preview', async (block: any) => {
+  const url = block.link_preview?.url || '';
+  const videoId = extractYouTubeVideoId(url);
+  if (videoId) return makeYouTubeEmbed(videoId);
+  return url ? `[${url}](${url})` : '';
+});
+
+// ===========================
+// 型定義
+// ===========================
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -28,6 +97,10 @@ export interface BlogPost {
   correctionVideoUrl: string;
   heroImage: string;
 }
+
+// ===========================
+// Notion DB 取得関数
+// ===========================
 
 /**
  * 公開済み記事をすべて取得
@@ -81,7 +154,12 @@ export async function getPostBySlug(
   const mdblocks = await n2m.pageToMarkdown(post.id);
   const mdString = n2m.toMarkdownString(mdblocks);
   const markdown = mdString.parent || '';
-  const html = await marked.parse(markdown);
+
+  // marked: HTMLタグはそのまま通す（sanitize無効）
+  const html = await marked.parse(markdown, {
+    breaks: false,
+    gfm: true,
+  });
 
   return { post, html };
 }
@@ -92,9 +170,7 @@ export async function getPostBySlug(
 function parsePostMetadata(page: any): BlogPost {
   const props = page.properties || {};
 
-  // タイトルプロパティの名前候補（日本語または英語）
-  const titleProp =
-    props['タイトル'] || props['Title'] || props['Name'];
+  const titleProp = props['タイトル'] || props['Title'] || props['Name'];
 
   return {
     id: page.id,
