@@ -97,24 +97,15 @@ const formattedDate = post.date
     )}
 
     {/* 関連動画リンク */}
-    {(post.youtubeUrl || post.correctionVideoUrl) && (
+    {post.youtubeUrl && (
       <div class="mt-8 p-5 bg-gray-50 rounded-xl border border-gray-200">
         <p class="text-sm font-bold text-gray-700 mb-2">📺 関連動画</p>
         <div class="space-y-1.5 text-sm">
-          {post.youtubeUrl && (
-            <div>
-              <a href={post.youtubeUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-                元動画を YouTube で見る →
-              </a>
-            </div>
-          )}
-          {post.correctionVideoUrl && (
-            <div>
-              <a href={post.correctionVideoUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-                訂正・補足動画を見る →
-              </a>
-            </div>
-          )}
+          <div>
+            <a href={post.youtubeUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+              元動画を YouTube で見る →
+            </a>
+          </div>
         </div>
       </div>
     )}
