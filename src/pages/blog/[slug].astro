@@ -23,6 +23,22 @@ if (!result) {
 
 const { post, html } = result;
 
+// 同じカテゴリ内の前後の記事（公開済みのみ）
+// 公開日が古い順に並べ、現在の記事の前後を探す
+const allPublished = await getAllPosts(false);
+const sameCategoryAsc = allPublished
+  .filter((p) => p.category === post.category && p.slug && p.slug !== post.slug)
+  .reverse(); // getAllPosts は降順なので昇順に
+
+let prev: typeof post | null = null;
+let next: typeof post | null = null;
+if (post.category && post.date) {
+  for (const p of sameCategoryAsc) {
+    if (p.date < post.date) prev = p; // 古い側 → 上書きで最新の "古い記事" が残る
+    else if (p.date > post.date && !next) next = p; // 新しい側 → 最初に見つかったもの
+  }
+}
+
 const formattedDate = post.date
   ? new Date(post.date).toLocaleDateString('ja-JP', {
       year: 'numeric',
@@ -39,7 +55,10 @@ const formattedDate = post.date
 >
   <Header />
 
-  <article class="container mx-auto px-4 py-8 sm:py-12 max-w-3xl">
+  <div class="container mx-auto px-4 py-8 sm:py-12">
+    <div class="mx-auto max-w-3xl xl:max-w-[68rem] xl:grid xl:grid-cols-[minmax(0,_48rem)_16rem] xl:gap-8 xl:items-start">
+
+    <article>
     {/* ヘッダー部 */}
     <header class="mb-8">
       <div class="flex items-center gap-2 mb-3 flex-wrap">
@@ -110,6 +129,34 @@ const formattedDate = post.date
       </div>
     )}
 
+    {/* モバイル/タブレット用：前後の記事ナビ */}
+    {(prev || next) && (
+      <nav class="xl:hidden mt-10 grid grid-cols-2 gap-3" aria-label="同じカテゴリの前後の記事">
+        {prev ? (
+          <a
+            href={`/blog/${prev.slug}`}
+            class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 transition-all"
+          >
+            <div class="text-xs text-gray-500 mb-1.5">← 前の記事</div>
+            <div class="text-sm font-medium text-gray-800 leading-snug line-clamp-3">{prev.title}</div>
+          </a>
+        ) : (
+          <div></div>
+        )}
+        {next ? (
+          <a
+            href={`/blog/${next.slug}`}
+            class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 transition-all text-right"
+          >
+            <div class="text-xs text-gray-500 mb-1.5">次の記事 →</div>
+            <div class="text-sm font-medium text-gray-800 leading-snug line-clamp-3">{next.title}</div>
+          </a>
+        ) : (
+          <div></div>
+        )}
+      </nav>
+    )}
+
     {/* 一覧に戻る */}
     <div class="mt-12 pt-8 border-t border-gray-200 text-center">
       <a
@@ -119,7 +166,39 @@ const formattedDate = post.date
         ← ブログ一覧に戻る
       </a>
     </div>
-  </article>
+    </article>
+
+    {/* デスクトップ用：固定サイドバー */}
+    {(prev || next) && (
+      <aside class="hidden xl:block" aria-label="同じカテゴリの前後の記事">
+        <div class="sticky top-24 space-y-3">
+          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider px-1 mb-2">
+            📚 同シリーズ
+          </h3>
+          {prev && (
+            <a
+              href={`/blog/${prev.slug}`}
+              class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 transition-all"
+            >
+              <div class="text-xs text-gray-500 mb-1.5">← 前の記事</div>
+              <div class="text-sm font-medium text-gray-800 leading-snug">{prev.title}</div>
+            </a>
+          )}
+          {next && (
+            <a
+              href={`/blog/${next.slug}`}
+              class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 transition-all"
+            >
+              <div class="text-xs text-gray-500 mb-1.5 text-right">次の記事 →</div>
+              <div class="text-sm font-medium text-gray-800 leading-snug">{next.title}</div>
+            </a>
+          )}
+        </div>
+      </aside>
+    )}
+
+    </div>
+  </div>
 
   <Footer />
 </BaseLayout>
