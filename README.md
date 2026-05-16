@@ -111,7 +111,6 @@ tobichan-astro/
 | 公開日 | 2026/05/03 |
 | Description | （SEO用に120〜160字） |
 | YouTube URL | `https://youtu.be/xxx` |
-| 訂正動画 URL | （あれば） |
 | アイキャッチURL | `https://i.ytimg.com/vi/xxx/maxresdefault.jpg` |
 
 ### 3. ページ本文に記事を書く
