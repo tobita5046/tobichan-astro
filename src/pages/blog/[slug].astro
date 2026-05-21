@@ -56,7 +56,7 @@ const formattedDate = post.date
   <Header />
 
   <div class="container mx-auto px-4 py-8 sm:py-12">
-    <div class="mx-auto max-w-3xl xl:max-w-[68rem] xl:grid xl:grid-cols-[minmax(0,_48rem)_16rem] xl:gap-8 xl:items-start">
+    <div class="mx-auto max-w-3xl xl:max-w-[68rem] xl:grid xl:grid-cols-[minmax(0,_48rem)_16rem] xl:gap-8">
 
     <article>
     {/* ヘッダー部 */}
@@ -129,15 +129,15 @@ const formattedDate = post.date
       </div>
     )}
 
-    {/* モバイル/タブレット用：前後の記事ナビ */}
+    {/* 記事末尾：前後の記事ナビ（全画面サイズで表示） */}
     {(prev || next) && (
-      <nav class="xl:hidden mt-10 grid grid-cols-2 gap-3" aria-label="同じカテゴリの前後の記事">
+      <nav class="mt-10 grid grid-cols-2 gap-3 sm:gap-4" aria-label="同じカテゴリの前後の記事">
         {prev ? (
           <a
             href={`/blog/${prev.slug}`}
-            class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 transition-all"
+            class="group block p-4 sm:p-5 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-blue-300 transition-all"
           >
-            <div class="text-xs text-gray-500 mb-1.5">← 前の記事</div>
+            <div class="text-xs text-gray-500 mb-1.5 group-hover:text-blue-600">← 前の記事</div>
             <div class="text-sm font-medium text-gray-800 leading-snug line-clamp-3">{prev.title}</div>
           </a>
         ) : (
@@ -146,9 +146,9 @@ const formattedDate = post.date
         {next ? (
           <a
             href={`/blog/${next.slug}`}
-            class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 transition-all text-right"
+            class="group block p-4 sm:p-5 bg-white rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-blue-300 transition-all text-right"
           >
-            <div class="text-xs text-gray-500 mb-1.5">次の記事 →</div>
+            <div class="text-xs text-gray-500 mb-1.5 group-hover:text-blue-600">次の記事 →</div>
             <div class="text-sm font-medium text-gray-800 leading-snug line-clamp-3">{next.title}</div>
           </a>
         ) : (
